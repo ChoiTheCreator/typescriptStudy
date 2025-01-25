@@ -1,5 +1,4 @@
 /*eslint-disbale*/
-
 const First = () => {
   //배열 타입 지정하는법
   const 회원목록: string[] = ['문자열만 들어가셈', '딴것들은 못들어감 ㅠ'];

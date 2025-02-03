@@ -37,7 +37,7 @@ function App() {
   const 철수쌤 = { subject: 'math' };
   const 영희쌤 = { subject: ['science', 'english'] };
   const 민수쌤 = { subject: ['science', 'art', 'korean'] };
-  function teacherOsiate(obj: { subject: string | string[] }) {
+  function teacherOsiate(obj: { subject: string | string[] }): string {
     const len = obj.subject.length;
     let ans: string = '';
 
@@ -53,11 +53,50 @@ function App() {
     return '';
   }
 
+  //object 타입 정의한 type 변수 두개를 & 합칠때 중복된 속성
+  function findOutObjectCommon(): void {
+    type obj1 = { common: string };
+    type obj2 = { common: string };
+
+    type obj3 = obj1 & obj2;
+
+    const appendObject: obj3 = { common: '하이' };
+    console.log(appendObject);
+  }
+
+  //1. 타입 Object여야함 + color 속성 가질수도 있고 문자 들어와야함 + size 속성 있어야함 항상 숫자임
+  // + position 변경불가한 속성이고 숫자가 담긴 array자료야 들어와
+
+  //2. 대충 이렇게 생긴 object 자료를 다룰 일이 많습니다.
+  //{ name : 'kim', phone : 123, email : 'abc@naver.com'}
+  //object 안에 있는이름, 전화번호, 이메일속성이 옳은 타입인지 검사하는 type alias를 만들어봅시다.
+  type objThreeCase = { color?: number; size: number; position: number[] };
+  type objTypeTest = {
+    name: string;
+    phone: number;
+    email: string;
+  };
+
+  type adultTest = { isAdult: boolean };
+
+  type appendTest = objTypeTest & adultTest;
+  function makethisShit(): appendTest {
+    const testObj: appendTest = {
+      name: '최원빈',
+      phone: 193,
+      email: 'wonbin',
+      isAdult: true,
+    };
+    console.log(testObj);
+    return testObj;
+  }
+
   return (
     <div>
       <h2> marry 함수 결과 :{marry(85, true, '상')}</h2>
       <h2> arrFilter 함수 결과 :{arrFilter([123, '3'])}</h2>
       <h2> teacherOsiate 함수 결과 :{teacherOsiate(영희쌤)}</h2>
+      <h2> appendTest Type 시험 : {JSON.stringify(makethisShit())}</h2>
     </div>
   );
 }

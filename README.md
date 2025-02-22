@@ -1,50 +1,81 @@
-# React + TypeScript + Vite
+# 타입스크립트 스터디 레포지토리
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 소개
 
-Currently, two official plugins are available:
+이 레포지토리는 **코딩애플 강의**와 **타입스크립트 공식 문서**를 활용하여 타입스크립트를 독학하는 것을 목표로 합니다. 타입스크립트의 기본 개념부터 고급 기능까지 체계적으로 학습하며, 실습을 통해 실력을 향상시키는 것이 목적입니다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📚 학습 자료
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### **1. 코딩애플 타입스크립트 강의**
 
-- Configure the top-level `parserOptions` property like this:
+- 기본 문법 및 타입
+- 함수 및 객체 타입 지정
+- 인터페이스 vs 타입 별칭
+- 제네릭, 유틸리티 타입 및 고급 기능
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### **2. 타입스크립트 공식 문서**
+
+- 타입스크립트 핸드북
+- TSConfig 설정 문서
+- 타입스크립트 플레이그라운드
+
+---
+
+## 🚀 학습 목표 및 주제
+
+### **✔️ 기본 개념**
+
+- ✅ 기본 타입 (`string`, `number`, `boolean`, `array`, `tuple`, `enum`)
+- ✅ 함수 (`매개변수 타입`, `반환 타입`, `기본 매개변수`, `선택적 매개변수`)
+- ✅ 객체 & 인터페이스 (`readonly`, `선택적 프로퍼티`, `인덱스 시그니처`)
+- ✅ 타입 별칭 & 인터페이스 (`사용 시기 비교`)
+
+### **✔️ 중급 개념**
+
+- ✅ 타입 내로잉 (`typeof`, `instanceof`, `타입 가드`)
+- ✅ 유니온 & 인터섹션 타입
+- ✅ 함수 오버로딩
+- ✅ 타입 단언 (`as`, `<T>`, `느슨한 널 체크`)
+- ✅ 제네릭 (`함수`, `인터페이스`, `제약 조건`, `기본 타입`)
+
+### **✔️ 고급 개념**
+
+- ✅ 매핑된 타입
+- ✅ 유틸리티 타입 (`Partial<T>`, `Pick<T, K>`, `Omit<T, K>`, `Record<K, T>`)
+- ✅ 조건부 타입
+- ✅ 템플릿 리터럴 타입
+- ✅ 타입 안전한 API 호출 (`fetch 활용`)
+- ✅ 모듈 시스템 (`CommonJS vs ES 모듈`)
+
+## 📁 레포지토리 구조
+
+```
+📦 typescript-study
+ ┣ 📂 CODE/           # 타입스크립트 실습 파일
+ ┣ 📂 MD/       # 타입스크립트 학습 마크다운 파일
+ ┣ 📜 tsconfig.json   # 타입스크립트 설정 파일
+ ┣ 📜 README.md       # 학습 가이드 및 로드맵
+ ┗ 📜 package.json    # 프로젝트 의존성 및 실행 스크립트
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 🏆 학습 진행 상황 및 노트
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+📌 **학습 진행 상황 및 노트는 이 레포지토리에 지속적으로 기록됩니다.**
+
+---
+
+## 🎯 학습 목표
+
+✅ 타입스크립트 기본 개념 및 베스트 프랙티스 숙달
+
+✅ 타입스크립트를 실제 프로젝트에 적용
+
+✅ 타입 안전한 React & Node.js 프로젝트 구축
+
+✅ 타입스크립트 기반 오픈소스 프로젝트 기여 경험 쌓기
+
+---

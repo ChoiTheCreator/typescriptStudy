@@ -5,9 +5,11 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "noImplicitAny": true,
-    "strictNullChecks": true
+    "module": "CommonJS",
+    "target": "ES6",
+    "moduleResolution": "node",
+    "rootDir": "./CODE",
+    "outDir": "./dist",
+    "strict": true
   }
 }

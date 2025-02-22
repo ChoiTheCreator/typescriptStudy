@@ -10,6 +10,11 @@
     "moduleResolution": "node",
     "rootDir": "./CODE",
     "outDir": "./dist",
-    "strict": true
+    "strict": true,
+    "sourceMap": true, // ✅ 디버깅 가능하게 sourceMap 활성화
+    "resolveJsonModule": true, // ✅ JSON 파일도 import 가능
+    "esModuleInterop": true, // ✅ ES6 모듈을 CommonJS 환경에서 사용 가능
+    "skipLibCheck": true, // ✅ 라이브러리 타입 체크 생략 (속도 향상)
+    "forceConsistentCasingInFileNames": true // ✅ OS마다 다른 대소문자 차이 방지
   }
 }

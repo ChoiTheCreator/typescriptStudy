@@ -97,3 +97,5 @@ let 회원정보2: {
 };
 회원정보2.pluseOne(1);
 회원정보2.changeName();
+
+

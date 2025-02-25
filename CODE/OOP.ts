@@ -68,6 +68,9 @@ class Word {
     rest.forEach((args) => {
       //instanceof는 obj 타입 쓸때 (속성과 메서드를 포함하는 거 Array,Object 이런것들)
       //typeof는 number,string 같은 기본형 쓸때 (우리가 아는 그 8개임)
+
+      //instanceof쓸때는 args instanceof Array
+      //typeof쓸때는 (기본형이니까) typeof args 자체가 값임
       if (typeof args === 'number') {
         this.num.push(args);
       } else if (typeof args === 'string') this.str.push(args);

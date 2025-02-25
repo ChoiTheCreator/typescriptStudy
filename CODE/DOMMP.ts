@@ -7,7 +7,7 @@ btn?.addEventListener('click', () => {
   }
 });
 
-//link가 3개이상임
+//link가 3개이상임 args라는 녀석으로 ㄱㄱ
 const link = document.querySelectorAll('.naver');
 link.forEach((args) => {
   if (args instanceof HTMLAnchorElement) {

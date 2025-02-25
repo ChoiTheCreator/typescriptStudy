@@ -77,7 +77,8 @@
 - ✅ 객체지향 활용법
 - ✅ Interface X Object
 - ✅ rest parameter, Destructure TS 관점
-- ✅ Narrowing Technique (쫄지마 걍 타입 지정을 명확히한다말고는 없음)
+- ✅ Narrowing Technique
+- ✅ Return Type :Never (Never use, just use void)
 
 ---
 

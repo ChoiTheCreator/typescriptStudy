@@ -78,7 +78,11 @@
 - ✅ Interface X Object
 - ✅ rest parameter, Destructure TS 관점
 - ✅ Narrowing Technique
-- ✅ Return Type :Never (Never use, just use void)
+- ✅ Return Type : Never (Never use, just use void)
+- ✅ 접근제어자 종류에 따른 활용법
+- ✅ static은 왜 써야하는가 (객체 자체의 접근 Only)
+- ✅ Type import/export + namespace(그닥 .. ㅋ)
+- ✅ Generic에 대하여
 
 ---
 

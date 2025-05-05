@@ -82,7 +82,7 @@
 - ✅ 접근제어자 종류에 따른 활용법
 - ✅ static은 왜 써야하는가 (객체 자체의 접근 Only)
 - ✅ Type import/export + namespace(그닥 .. ㅋ)
-- ✅ Generic에 대하여
+- ✅ Generic에 대하여 (더더욱 동적인 타입 입력과 관대한 적용)
 
 ---
 

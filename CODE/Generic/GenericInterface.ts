@@ -89,7 +89,7 @@ const goSchool = (user: User) => {
   console.log('등교 ㄱㄱ', school);
 };
 
-//4. Generic Interface를 쓰는 이유
+//4. Generic Interface를 쓰는 이유 
 interface UserGeneric<T> {
   name: string;
   profile: T;

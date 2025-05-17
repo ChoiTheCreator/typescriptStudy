@@ -1,0 +1,118 @@
+# 5장. 타입 활용하기 (요약 정리)
+
+타입스크립트를 실전에서 더 유용하게 쓰기 위한 5가지 고급 활용법을 간단한 예제와 함께 정리했습니다.
+
+---
+
+## ✅ 5.1 조건부 타입
+
+```ts
+T extends U ? A : B
+// T가 U에 할당 가능하면 A, 아니면 B
+```
+
+### 예시:
+
+```ts
+type PayMethod<T> = T extends "card" ? Card : Bank;
+```
+
+- `"card"`면 `Card` 타입 반환
+- `"bank"`면 `Bank` 타입 반환
+
+**장점**: 
+- 정확한 타입 추론 가능
+- `as` 단언 없이 안전한 타입 처리
+
+---
+
+## ✅ 5.2 템플릿 리터럴 타입
+
+```ts
+type HeadingNumber = 1 | 2 | 3;
+type HeaderTag = `h${HeadingNumber}`;  // "h1" | "h2" | "h3"
+```
+
+```ts
+type Vertical = "top" | "bottom";
+type Horizon = "left" | "right";
+type Direction = Vertical | `${Vertical}${Capitalize<Horizon>}`;
+// → "top" | "bottom" | "topLeft" | "bottomRight" ...
+```
+
+**장점**:
+- 자동완성 가능
+- 문자열 조합 타입을 안전하게 표현
+
+---
+
+## ✅ 5.3 커스텀 유틸리티 타입
+
+### PickOne: 유니온 중 하나의 속성만 허용
+
+```ts
+type PickOne<T> = {
+  [P in keyof T]: Record<P, T[P]> &
+    Partial<Record<Exclude<keyof T, P>, undefined>>;
+}[keyof T];
+```
+
+### 예시:
+
+```ts
+type Card = { card: string };
+type Account = { account: string };
+type CardOrAccount = PickOne<Card & Account>;
+
+withdraw({ card: "hyundai" }); // ✅
+withdraw({ account: "hana" }); // ✅
+withdraw({ card: "h", account: "a" }); // ❌
+```
+
+---
+
+## ✅ 5.4 불변 객체 타입으로 활용하기
+
+```ts
+const colors = {
+  red: "#F00",
+  green: "#0F0",
+} as const;
+
+type ColorKey = keyof typeof colors; // "red" | "green"
+
+const getColor = (key: ColorKey) => colors[key];
+```
+
+**장점**:
+- 객체 키를 타입으로 안전하게 제한
+- 자동완성과 오타 방지
+
+---
+
+## ✅ 5.5 Record 키 개선
+
+### 문제: Record<string, T> → 모든 문자열 키 허용
+
+### 해결책 1: 유닛 타입으로 키 제한
+
+```ts
+type Category = "한식" | "일식";
+```
+
+### 해결책 2: PartialRecord 유틸리티
+
+```ts
+type PartialRecord<K extends string, T> = Partial<Record<K, T>>;
+
+const foodByCategory: PartialRecord<string, Food[]> = {
+  한식: [{ name: "비빔밥" }],
+};
+
+foodByCategory["양식"]?.map(...); // undefined 안전 처리 가능
+```
+
+---
+
+**이 문서의 목적**:  
+복잡했던 타입 예시들을 실제 코드 흐름에 맞게 간결하게 재구성해 이해를 돕기 위함입니다.

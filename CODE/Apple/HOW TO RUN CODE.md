@@ -1,1 +1,1 @@
-npx ts-node CODE/OOP.ts
+CODE/Generic CODE/Protected.ts CODE/Private.ts CODE/OOP.ts CODE/OOP.js CODE/Literal.ts CODE/Interface.ts CODE/Generic.ts CODE/FunctionType.ts CODE/DOM.html CODE/Destructure.ts[text](Generic) [text](Protected.ts) [text](Private.ts) [text](OOP.ts) [text](OOP.js) [text](Literal.ts) [text](Interface.ts) [text](Generic.ts) [text](FunctionType.ts) [text](DOM.html) [text](Destructure.ts)

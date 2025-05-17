@@ -1,0 +1,93 @@
+## ✅ Index Access Type, `keyof`, Mapped, Template Literal Type 예제 정리
+
+TypeScript에서 타입을 조합하거나 추론할 때 유용한 기능들을 예제와 함께 정리합니다.
+
+---
+
+### 🔹 1. Index Access Type
+```ts
+interface User {
+  id: number;
+  name: string;
+  isAdmin: boolean;
+}
+
+type UserId = User["id"]; // number
+type UserName = User["name"]; // string
+```
+- 특정 속성의 타입만 추출하고 싶을 때 사용
+- 문자열 리터럴을 key로 사용함
+
+---
+
+### 🔹 2. `keyof` 연산자
+```ts
+type UserKeys = keyof User; // "id" | "name" | "isAdmin"
+```
+- 객체 타입의 키 집합을 유니온 타입으로 반환함
+
+---
+
+### 🔹 3. Mapped Type
+```ts
+type ReadonlyUser = {
+  readonly [K in keyof User]: User[K];
+};
+```
+- 객체의 모든 키를 순회하며 새로운 타입 생성
+- 위 예시는 모든 속성을 readonly로 만듦
+
+```ts
+type NullableUser = {
+  [K in keyof User]: User[K] | null;
+};
+```
+- 모든 필드를 nullable 처리
+
+---
+
+### 🔹 4. Template Literal Type
+```ts
+type Lang = 'en' | 'ko';
+type Direction = 'next' | 'prev';
+
+type MessageKey = `${Lang}_${Direction}`;
+// 결과: "en_next" | "en_prev" | "ko_next" | "ko_prev"
+```
+- 문자열 리터럴 유니온을 조합하여 새로운 문자열 유니온 타입 생성 가능
+
+---
+
+### 🔹 5. 고급 조합 예제
+```ts
+interface ApiResponse<T> {
+  success: boolean;
+  data: T;
+}
+
+interface Post {
+  id: number;
+  title: string;
+}
+
+type PostResponse = ApiResponse<Post>;
+
+// 필드별 응답 메타 정보 만들기
+interface FieldMeta {
+  label: string;
+  visible: boolean;
+}
+
+type PostFieldMeta = {
+  [K in keyof Post]: FieldMeta;
+};
+
+// 특정 키를 기준으로 타입 뽑기
+function getFieldLabel<T, K extends keyof T>(meta: { [P in keyof T]: FieldMeta }, key: K): string {
+  return meta[key].label;
+}
+```
+
+---
+
+📌 이런 타입 조합을 사용하면 API 응답 처리, 폼 상태 생성, 에러 메시지 키 생성 등에 매우 유용합니다.
